@@ -14,13 +14,15 @@ const FlashCard = (props) => {
     >
       <div className="front">
         {props.flashcard.question}
-        {props.flashcard.options.map((option) => {
-          return (
-            <div key={option} className="choice-option">
-              {option}
-            </div>
-          );
-        })}
+        <div className="choice-options">
+          {props.flashcard.options.map((option) => {
+            return (
+              <div key={option} className="choice-option">
+                {option}
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div className="back">{props.flashcard.answer}</div>
     </div>

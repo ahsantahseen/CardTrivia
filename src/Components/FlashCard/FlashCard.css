@@ -9,6 +9,7 @@
   transform-style: preserve-3d;
   height: 150px;
   width: 150px;
+  margin-top: 10px;
   cursor: pointer;
   transition: 150ms;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0))
@@ -31,4 +32,18 @@
 
 .card .back {
   transform: rotateY(180deg);
+}
+
+.choice-options {
+  margin-top: 0.5rem;
+}
+
+.choice-option {
+  margin-top: 0.25rem;
+  color: blue;
+  font-size: 0.75rem;
+}
+
+.choice-option:first-child {
+  margin-top: 0;
 }

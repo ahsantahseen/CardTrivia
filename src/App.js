@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FlashCardLists from "./Components/FlashCardLists/FlashCardLists";
+import "./App.css";
 
 function App() {
   const Data = [
@@ -20,7 +21,6 @@ function App() {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>FLASH CARD QUIZ APP</h1>
-
       <FlashCardLists flashcardsData={answer}></FlashCardLists>
     </div>
   );

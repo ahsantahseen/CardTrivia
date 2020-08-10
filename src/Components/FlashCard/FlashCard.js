@@ -1,14 +1,28 @@
 import React, { useState } from "react";
+import "./FlashCard.css";
 
 const FlashCard = (props) => {
   const [showAnswer, setshowAnswer] = useState(false);
 
   const ShowAnswerFunc = () => {
-    setshowAnswer(true);
+    setshowAnswer(!showAnswer);
   };
   return (
-    <div onClick={ShowAnswerFunc}>
-      {showAnswer ? props.flashcard.answer : props.flashcard.question}
+    <div
+      className={`card ${showAnswer ? "flip" : ""}`}
+      onClick={ShowAnswerFunc}
+    >
+      <div className="front">
+        {props.flashcard.question}
+        {props.flashcard.options.map((option) => {
+          return (
+            <div key={option} className="choice-option">
+              {option}
+            </div>
+          );
+        })}
+      </div>
+      <div className="back">{props.flashcard.answer}</div>
     </div>
   );
 };

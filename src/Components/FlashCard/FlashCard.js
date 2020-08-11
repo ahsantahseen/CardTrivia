@@ -21,6 +21,10 @@ const FlashCard = (props) => {
     props.flashcard.options,
     props.flashcard.answer,
   ]);
+  useEffect(() => {
+    window.addEventListener("resize", setMaxHeight);
+    return () => window.removeEventListener("resize", setMaxHeight);
+  }, []);
   return (
     <div
       className={`card ${showAnswer ? "flip" : ""}`}

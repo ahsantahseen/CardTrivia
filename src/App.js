@@ -48,7 +48,7 @@ function App() {
   };
   return (
     <div>
-      <h1>flash card quiz </h1>
+      <h1>flash card quiz</h1>
       <div className="container">
         <FlashCardLists flashcardsData={answer}></FlashCardLists>
       </div>

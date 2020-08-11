@@ -6,7 +6,13 @@ const FlashCardLists = (props) => {
   return (
     <div className="Grid-Layout">
       {props.flashcardsData.map((flashcard) => {
-        return <FlashCard key={flashcard.id} flashcard={flashcard}></FlashCard>;
+        return (
+          <FlashCard
+            key={flashcard.id}
+            
+            flashcard={flashcard}
+          ></FlashCard>
+        );
       })}
     </div>
   );

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlashCardLists from "./Components/FlashCardLists/FlashCardLists";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const Data = [
@@ -18,10 +19,39 @@ function App() {
     },
   ];
   const [answer, setanswer] = useState(Data);
+  useEffect(() => {
+    axios.get("https://opentdb.com/api.php?amount=10").then((response) => {
+      setanswer(
+        response.data.results.map((QuestionItem, index) => {
+          const Correct_Answer = StringDecoder(QuestionItem.correct_answer);
+          const Options = [
+            ...QuestionItem.incorrect_answers.map((elem) =>
+              StringDecoder(elem)
+            ),
+            Correct_Answer,
+          ];
+          return {
+            id: `${index}-${Date.now()}`,
+            question: StringDecoder(QuestionItem.question),
+            answer: Correct_Answer,
+            options: Options.sort(() => Math.random() - 0.5),
+          };
+        })
+      );
+    });
+  }, []);
+
+  const StringDecoder = (str) => {
+    const TextArea = document.createElement("textarea");
+    TextArea.innerHTML = str;
+    return TextArea.value;
+  };
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>FLASH CARD QUIZ APP</h1>
-      <FlashCardLists flashcardsData={answer}></FlashCardLists>
+      <h1>flash card quiz </h1>
+      <div className="container">
+        <FlashCardLists flashcardsData={answer}></FlashCardLists>
+      </div>
     </div>
   );
 }

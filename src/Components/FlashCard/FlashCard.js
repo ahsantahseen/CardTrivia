@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./FlashCard.css";
 
 const FlashCard = (props) => {
@@ -7,12 +7,17 @@ const FlashCard = (props) => {
   const ShowAnswerFunc = () => {
     setshowAnswer(!showAnswer);
   };
+
+  const FrontElement = useRef();
+  const BackElement = useRef();
+
+  
   return (
     <div
       className={`card ${showAnswer ? "flip" : ""}`}
       onClick={ShowAnswerFunc}
     >
-      <div className="front">
+      <div className="front" ref={FrontElement}>
         {props.flashcard.question}
         <div className="choice-options">
           {props.flashcard.options.map((option) => {
@@ -24,7 +29,9 @@ const FlashCard = (props) => {
           })}
         </div>
       </div>
-      <div className="back">{props.flashcard.answer}</div>
+      <div className="back" ref={BackElement}>
+        {props.flashcard.answer}
+      </div>
     </div>
   );
 };

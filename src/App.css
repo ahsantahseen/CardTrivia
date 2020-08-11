@@ -1,9 +1,14 @@
 body {
-  text-align: center;
   background-image: linear-gradient(
     to top,
     #fdcbf1 0%,
     #fdcbf1 1%,
     #e6dee9 100%
   );
+  margin: 0;
+  text-align: center;
+}
+.container {
+  max-width: 900px;
+  margin: 1rem 2rem;
 }

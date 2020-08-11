@@ -3,6 +3,8 @@ import Axios from "axios";
 
 const Header = () => {
   const categoryReference = useRef();
+  const noOfQuestionsReference = useRef();
+
   const handlerSubmit = (e) => {
     e.prevent();
   };
@@ -13,6 +15,7 @@ const Header = () => {
       console.log(Response.data);
     });
   }, []);
+
   return (
     <div>
       <form className="header" onSubmit={handlerSubmit}>
@@ -21,12 +24,23 @@ const Header = () => {
           <select id="category" ref={categoryReference}>
             {categories.map((category) => {
               return (
-                <option value={category.id} id={category.id}>
+                <option value={category.id} key={category.id}>
                   {category.name}
                 </option>
               );
             })}
           </select>
+          <div className="form-group">
+            <label htmlFor="amount">No of Questions</label>
+            <input
+              type="number"
+              id="ammount"
+              min="1"
+              step="1"
+              defaultValue={10}
+              ref={noOfQuestionsReference}
+            ></input>
+          </div>
         </div>
       </form>
     </div>

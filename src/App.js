@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import FlashCardLists from "./Components/FlashCardLists/FlashCardLists";
 import "./App.css";
 import axios from "axios";
+import Header from "./Components/Header/Header";
 
 function App() {
   const Data = [
@@ -47,12 +48,13 @@ function App() {
     return TextArea.value;
   };
   return (
-    <div>
+    <>
       <h1>flash card quiz</h1>
+      <Header></Header>
       <div className="container">
         <FlashCardLists flashcardsData={answer}></FlashCardLists>
       </div>
-    </div>
+    </>
   );
 }
 

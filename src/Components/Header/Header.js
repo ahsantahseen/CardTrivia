@@ -40,6 +40,9 @@ const Header = () => {
               defaultValue={10}
               ref={noOfQuestionsReference}
             ></input>
+            <div className="form-group">
+              <button className="button">Generate Quiz!</button>
+            </div>
           </div>
         </div>
       </form>

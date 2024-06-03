@@ -1,4 +1,4 @@
-# Quiz App http://ahsanflashquiz.surge.sh/
+# CardTrivia http://ahsanflashquiz.surge.sh/
 
 ### How to use? (make sure you have node installed).
 
